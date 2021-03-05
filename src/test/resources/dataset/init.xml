@@ -1,0 +1,11 @@
+<dataset>
+    <author id="1" email="stephen.king@email.com" full_name="Stephen Edwin King"/>
+    <author id="2" email="joanne.rowling@email.com" full_name="Joanne Rowling"/>
+
+    <book id="1" name="The Shining"  iban="978-0-385-12167-5" author_id="1"/>
+    <book id="2" name="Pet Sematary" iban="978-0-385-18244-7" author_id="1"/>
+
+    <book id="3" name="Harry Potter and the Philosopher's Stone" iban="0-7475-3269-9" author_id="2"/>
+    <book id="4" name="Harry Potter and the Chamber of Secrets" iban="0-7475-3849-2" author_id="2"/>
+    <book id="5" name="Harry Potter and the Prisoner of Azkaban" iban="	0-7475-4215-5" author_id="2"/>
+</dataset>
