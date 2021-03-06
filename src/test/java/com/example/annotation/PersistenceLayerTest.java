@@ -4,9 +4,6 @@ import com.example.config.DatabaseContainerInitializer;
 import com.github.database.rider.junit5.api.DBRider;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.FilterType;
-import org.springframework.stereotype.Repository;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.transaction.annotation.Propagation;
@@ -20,10 +17,7 @@ import static org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTest
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Inherited
-@DataJpaTest(
-        showSql = false,
-        includeFilters = @ComponentScan.Filter(type = FilterType.ANNOTATION, classes = Repository.class)
-)
+@DataJpaTest(showSql = false)
 @DBRider
 @EnableSqlLogging
 @Transactional(propagation = Propagation.NOT_SUPPORTED)
