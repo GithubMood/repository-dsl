@@ -4,12 +4,12 @@ import com.github.dockerjava.api.model.RestartPolicy;
 import org.springframework.boot.test.util.TestPropertyValues;
 import org.springframework.context.ApplicationContextInitializer;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.testcontainers.containers.MySQLContainer;
+import org.testcontainers.containers.MariaDBContainer;
 
 public class DatabaseContainerInitializer implements ApplicationContextInitializer<ConfigurableApplicationContext> {
     private static final String TESTCONTAINERS_DISABLE_PROPERTY = "testcontainers.disable";
 
-    private static MySQLContainer mySQLContainer = new MySQLContainer<>("mysql:8.0.22")
+    private static MariaDBContainer mySQLContainer = new MariaDBContainer<>("mariadb:10.5")
             .withUsername("admin")
             .withPassword("admin")
             .withDatabaseName("demo")

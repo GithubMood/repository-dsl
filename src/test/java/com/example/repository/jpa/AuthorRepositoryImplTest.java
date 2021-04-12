@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
@@ -61,15 +62,17 @@ class AuthorRepositoryImplTest {
         //THEN
         assertThat(namesWithAuthors).hasSize(2);
 
-        AuthorStatistic stephenKing = namesWithAuthors.get(0);
-        assertThat(stephenKing).isNotNull();
-        assertThat(stephenKing.getAuthorName()).isEqualTo("Stephen Edwin King");
-        assertThat(stephenKing.getBookSize()).isEqualTo(2);
+        namesWithAuthors.sort(Comparator.comparing(AuthorStatistic::getAuthorName));
 
-        AuthorStatistic joanneRowling = namesWithAuthors.get(1);
+        AuthorStatistic joanneRowling = namesWithAuthors.get(0);
         assertThat(joanneRowling).isNotNull();
         assertThat(joanneRowling.getAuthorName()).isEqualTo("Joanne Rowling");
         assertThat(joanneRowling.getBookSize()).isEqualTo(3);
+
+        AuthorStatistic stephenKing = namesWithAuthors.get(1);
+        assertThat(stephenKing).isNotNull();
+        assertThat(stephenKing.getAuthorName()).isEqualTo("Stephen Edwin King");
+        assertThat(stephenKing.getBookSize()).isEqualTo(2);
     }
 
     @Test
